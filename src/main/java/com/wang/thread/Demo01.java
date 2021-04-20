@@ -1,7 +1,5 @@
 package com.wang.thread;
 
-import java.io.IOException;
-
 public class Demo01 {
 
 	public static void main(String[] args) {
