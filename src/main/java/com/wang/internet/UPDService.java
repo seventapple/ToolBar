@@ -1,5 +1,7 @@
 package com.wang.internet;
 
+import java.io.ByteArrayInputStream;
+import java.io.DataInputStream;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -24,11 +26,34 @@ import com.sun.org.apache.bcel.internal.generic.NEW;
 public class UPDService {
 
 	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
-		start();
+		// 启动服务,接收默认字节数组
+		// start();
+		// 启动服务,接收其它类型数据
+		// start2();
+		// 启动服务,一直接收数据,直到结束符号
+		start3();
+	}
+
+	public static void start3() throws IOException {
+		boolean flag = true;
+		System.out.println("start service 8888");
+		DatagramSocket service = new DatagramSocket(8888);
+		while (flag) {
+			byte[] container = new byte[1024];
+			DatagramPacket packet = new DatagramPacket(container, container.length);
+			service.receive(packet);
+			byte[] data = packet.getData();
+			String result = new String(data, 0, data.length);
+			System.out.println("get msg : " + result);
+			if ("end".equals(result)) {
+				flag = false;
+			}
+		}
+		service.close();
 	}
 
 	public static void start() throws IOException {
+		System.out.println("start service 8888");
 		DatagramSocket service = new DatagramSocket(8888);
 		byte[] container = new byte[1024];
 		DatagramPacket packet = new DatagramPacket(container, container.length);
@@ -36,6 +61,24 @@ public class UPDService {
 		byte[] data = packet.getData();
 		System.out.println(new String(data, 0, data.length));
 		service.close();
+	}
+
+	public static void start2() throws IOException {
+		System.out.println("start service 8888");
+		DatagramSocket service = new DatagramSocket(8888);
+		byte[] container = new byte[1024];
+		DatagramPacket packet = new DatagramPacket(container, container.length);
+		service.receive(packet);
+		byte[] data = packet.getData();
+		decode(data);
+		service.close();
+	}
+
+	public static void decode(byte[] data) throws IOException {
+		ByteArrayInputStream bis = new ByteArrayInputStream(data);
+		DataInputStream dis = new DataInputStream(bis);
+		int readInt = dis.readInt();
+		System.out.println("get msg : " + readInt);
 	}
 
 }
