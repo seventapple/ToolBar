@@ -11,7 +11,7 @@ import java.net.Socket;
 public class Service {
 
 	public static void main(String[] args) {
-		//单线程启动,一直监听端口,逐个处理请求
+		//服务器启动,一直监听端口,逐个处理请求
 		singleThreadStart();
 	}
 	
@@ -39,5 +39,4 @@ public class Service {
 			e.printStackTrace();
 		}
 	}
-
 }
