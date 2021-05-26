@@ -31,25 +31,31 @@ public class Service {
 			while (true) {
 				Socket accept = server.accept();
 				MyChannel channel = new MyChannel(accept);
-				pool.add(channel);
-				new Thread(channel).start();
+				pool.add(channel);// 统一管理
+				new Thread(channel).start(); // 一条道路
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
+	/**
+	 * 一个客户端 一条道路 1、输入流 2、输出流 3、接收数据 4、发送数据
+	 */
 	private class MyChannel implements Runnable {
 
 		private DataInputStream dis;
 		private DataOutputStream dos;
 		private boolean isRunning = true;
+		private String name;
 
 		public MyChannel(Socket client) {
 			try {
 				dis = new DataInputStream(client.getInputStream());
 				dos = new DataOutputStream(client.getOutputStream());
+				this.name = getMsg();
+				this.send("登陆成功...");
+				sendOthers("欢迎 " + this.name + " 进入聊天室!", true);
 			} catch (IOException e) {
 				isRunning = false;
 				pool.remove(this);
@@ -69,7 +75,7 @@ public class Service {
 			return msgString;
 		}
 
-		private void Send(String msg) {
+		private void send(String msg) {
 			try {
 				dos.writeUTF(msg);
 				dos.flush();
@@ -80,19 +86,39 @@ public class Service {
 			}
 		}
 
-		private void SendOthers(String msg) {
-			for (MyChannel chl : pool) {
-				if (chl == this) {
-					continue;
+		private void sendOthers(String msg, boolean system) {
+			// 私密信息判断
+			if (msg.startsWith("@") && msg.contains(":")) {
+				String target = msg.substring(1, msg.indexOf(":"));
+				String content = msg.substring(msg.indexOf(":") + 1);
+				for (MyChannel chl : pool) {
+					if (chl == this) {
+						continue;
+					}
+					if (chl.name.equals(target)) {
+						chl.send(this.name + "悄悄的和你说:" + content);
+					}
 				}
-				chl.Send(msg);
+			} else {
+				for (MyChannel chl : pool) {
+					if (chl == this) {
+						continue;
+					}
+					// 系统通知
+					if (system) {
+						chl.send("系统" + msg);
+					} else {
+						// 群聊消息
+						chl.send(this.name + ":" + msg);
+					}
+				}
 			}
 		}
 
 		@Override
 		public void run() {
 			while (isRunning) {
-				SendOthers(getMsg());
+				sendOthers(getMsg(), false);
 			}
 		}
 

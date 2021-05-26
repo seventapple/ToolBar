@@ -1,16 +1,15 @@
 package com.wang.internet.chattingRoom;
 
-import java.io.BufferedReader;
 import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.Socket;
 
 import com.wang.io.FileUtil;
 
 public class Receive implements Runnable {
+	// 输入流
 	private DataInputStream dis;
+	// 线程标识
 	private boolean isRunnable = true;
 
 	public Receive() {
@@ -26,16 +25,21 @@ public class Receive implements Runnable {
 		}
 	}
 
+//接收数据
+	private String recive() {
+		try {
+			return dis.readUTF();
+		} catch (IOException e) {
+			isRunnable = false;
+			FileUtil.close(dis);
+		}
+		return "";
+	}
+
 	@Override
 	public void run() {
 		while (isRunnable) {
-			try {
-				String readUTF = dis.readUTF();
-				System.out.println(readUTF);
-			} catch (IOException e) {
-				isRunnable = false;
-				FileUtil.close(dis);
-			}
+			System.out.println(recive());
 		}
 	}
 
