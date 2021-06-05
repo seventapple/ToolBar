@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.URLEncoder;
 import java.util.Date;
 
 /**
@@ -38,14 +39,20 @@ public class Lancher2 {
 	 */
 	private void receive() {
 		try {
-			Socket client = server.accept();
-			byte[] msg = new byte[20480];
-			int read = client.getInputStream().read(msg);
-			System.out.println(new String(msg, 0, read));
 
+			Socket client = server.accept();
+			// 请求
+			Request req = new Request(client.getInputStream());
+
+			// 获取请求参数
+			String name = req.getParam("uname");
+
+			// 访问
 			Response res = new Response(client);
-			res.print("<html><head><title>html</title></head>");
-			res.println("<body>wang<p>Hello</p></body></html>");
+			res.print("<html><head><meta charset=\"utf-8\"><title>html</title></head>");
+			res.println("<body>wang<p>Hello ");
+			res.print(name);
+			res.println(" !</p></body></html>");
 			res.pushToClient(200);
 			res.close();
 		} catch (IOException e) {
