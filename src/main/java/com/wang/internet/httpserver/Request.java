@@ -16,6 +16,7 @@ public class Request {
 	private String method;
 	// 请求资源
 	private String url;
+
 	// 请求资源
 	private Map<String, List<String>> params;
 	private String CRLF = "\r\n";
@@ -125,5 +126,13 @@ public class Request {
 				params.put(key, tempValues);
 			}
 		}
+	}
+
+	public String getMethod() {
+		return method;
+	}
+
+	public void setMethod(String method) {
+		this.method = method;
 	}
 }

@@ -13,12 +13,12 @@ import java.util.Date;
 /**
  * Socket编程:编写服务器(SocketServer) html http协议 服务器编写 反射 XML解析
  */
-public class Lancher2 {
+public class Server2 {
 
 	private ServerSocket server;
 
 	public static void main(String[] args) {
-		Lancher2 server = new Lancher2();
+		Server2 server = new Server2();
 		server.start();
 	}
 

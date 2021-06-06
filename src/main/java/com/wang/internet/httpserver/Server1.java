@@ -12,14 +12,14 @@ import java.util.Date;
 /**
  * Socket编程:编写服务器(SocketServer) html http协议 服务器编写 反射 XML解析
  */
-public class Lancher {
+public class Server1 {
 
 	private ServerSocket server;
 	private static String CRLF = "\r\n";
 	private static String BLANK = " ";
 
 	public static void main(String[] args) {
-		Lancher server = new Lancher();
+		Server1 server = new Server1();
 		server.start();
 	}
 

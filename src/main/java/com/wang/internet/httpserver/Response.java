@@ -43,8 +43,10 @@ public class Response {
 	}
 
 	public Response print(String info) {
-		content.append(info);
-		len += info.getBytes().length;
+		if (null != info) {
+			content.append(info);
+			len += info.getBytes().length;
+		}
 		return this;
 	}
 
@@ -57,6 +59,7 @@ public class Response {
 		bw.write(headerInfo.toString());
 		bw.append(content.toString());
 		bw.flush();
+		close();
 	}
 
 	public void close() {
@@ -64,8 +67,10 @@ public class Response {
 	}
 
 	public Response println(String info) {
-		content.append(info).append(CRLF);
-		len += (info + CRLF).getBytes().length;
+		if (null != info) {
+			content.append(info).append(CRLF);
+			len += (info + CRLF).getBytes().length;
+		}
 		return this;
 	}
 
