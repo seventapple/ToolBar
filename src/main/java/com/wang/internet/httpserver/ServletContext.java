@@ -7,22 +7,22 @@ public class ServletContext {
 	/**
 	 * key-servlet
 	 */
-	private Map<String, Servlet> servlet;
+	private Map<String, String> servlet;
 	/**
 	 * url-key(可多对一)
 	 */
 	private Map<String, String> mapping;
 
 	public ServletContext() {
-		servlet = new HashMap<String, Servlet>();
+		servlet = new HashMap<String, String>();
 		mapping = new HashMap<String, String>();
 	}
 
-	public Map<String, Servlet> getServlet() {
+	public Map<String, String> getServlet() {
 		return servlet;
 	}
 
-	public void setServlet(Map<String, Servlet> servlet) {
+	public void setServlet(Map<String, String> servlet) {
 		this.servlet = servlet;
 	}
 

@@ -25,7 +25,12 @@ public class Dispatcher implements Runnable {
 
 	@Override
 	public void run() {
-		Servlet servlet = WebApp.getApi(req.getUrl());
+		Servlet servlet = null;
+		try {
+			servlet = WebApp.getApi(req.getUrl());
+		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e2) {
+			code = 500;
+		}
 		if (null == servlet) {
 			code = 404;
 		} else {
