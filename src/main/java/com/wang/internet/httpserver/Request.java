@@ -71,7 +71,7 @@ public class Request {
 			String lastLine = requestInfo.substring(requestInfo.lastIndexOf(CRLF)).trim();
 			anaylzerParam(lastLine);
 		}
-		showRequset();
+//		showRequset();
 	}
 
 	public void showRequset() {
@@ -134,5 +134,13 @@ public class Request {
 
 	public void setMethod(String method) {
 		this.method = method;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 }

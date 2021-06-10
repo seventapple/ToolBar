@@ -1,10 +1,15 @@
 package com.wang.internet.httpserver;
 
-public class Servlet {
-	public void service(Request request, Response response) {
-			response.print("<html><head><meta charset=\"utf-8\"><title>html</title></head>");
-			response.println("<body>wang<p>Hello ");
-			response.print(request.getParam("uname"));
-			response.println(" !</p></body></html>");
-	}
+/**
+ * Servlet抽象类
+ * 
+ * @author 王李点儿
+ *
+ */
+public abstract class Servlet {
+	public abstract void service(Request request, Response response);
+
+	public abstract void doGet(Request request, Response response);
+
+	public abstract void doPost(Request request, Response response);
 }
