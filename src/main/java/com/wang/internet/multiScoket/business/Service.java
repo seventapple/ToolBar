@@ -8,10 +8,10 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Service2 {
+public class Service {
 	public static void main(String[] args) {
 		try {
-			new Service2(44908).start();
+			new Service(44908).start();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -19,7 +19,7 @@ public class Service2 {
 
 	private ServerSocket server;
 
-	public Service2(int port) throws IOException {
+	public Service(int port) throws IOException {
 		server = new ServerSocket(port);
 	}
 
@@ -56,7 +56,7 @@ class WorkThread implements Runnable {
 			size = dis.readInt();
 			System.out.println("method : " + method);
 			if ("ADD".equalsIgnoreCase(method)) {
-				doAdd();
+				doAdd1();
 			} else {
 				doDelete();
 			}
@@ -84,7 +84,31 @@ class WorkThread implements Runnable {
 		}
 	}
 
-	private void doAdd() throws IOException {
+	// 主动关闭客户端输出流
+	private void doAdd1() throws IOException {
+		System.out.println("doAdd");
+		FileOutputStream fos = null;
+		try {
+			fos = new FileOutputStream(path);
+			byte[] data = new byte[128];
+			int len;
+			while ((len = dis.read(data)) != -1) {
+				fos.write(data, 0, len);
+			}
+			fos.flush();
+		} finally {
+			if (fos != null) {
+				try {
+					fos.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+	// 在通信内容中附带流的长度
+	private void doAdd2() throws IOException {
 		System.out.println("doAdd");
 		FileOutputStream fos = null;
 		try {

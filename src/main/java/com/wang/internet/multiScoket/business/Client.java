@@ -31,6 +31,8 @@ public class Client {
 				dos.write(data, 0, len);
 			}
 			dos.flush();
+			// 主动关闭客户端输出流
+			client.shutdownOutput();
 			String ret = dis.readUTF();
 			System.out.println(ret);
 		} catch (UnknownHostException e) {
@@ -54,28 +56,6 @@ public class Client {
 			} catch (Exception e) {
 
 			}
-		}
-	}
-
-	/**
-	 * send file by Bean
-	 */
-	public void test1() {
-		try (// 1.创建客户端 服务器+端口 立即开始连接
-				Socket client = new Socket("127.0.0.1", 8888);) {
-			// 2.ready data
-			Bean bean = new Bean();
-			bean.setName("abc");
-			FileInputStream fis = new FileInputStream(new File("E:\\TestFile\\111.txt"));
-			bean.setBody(fis);
-			// 3.发送数据to服务器
-			ObjectOutputStream dos = new ObjectOutputStream(client.getOutputStream());
-			dos.writeObject(bean);
-			dos.flush();
-		} catch (UnknownHostException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
 		}
 	}
 }
