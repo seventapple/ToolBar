@@ -1,6 +1,5 @@
 package com.wang.javascript;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
@@ -13,6 +12,20 @@ import javax.script.ScriptException;
 
 public class RhinoTest {
 	public static void main(String[] args) throws ScriptException, NoSuchMethodException, IOException {
+//		rhinoTest();
+		// 实际应用 百家姓转换
+		// 获取脚本引擎对象
+		ScriptEngineManager sem = new ScriptEngineManager();
+		ScriptEngine engine = sem.getEngineByName("javascript");
+		URL url = RhinoTest.class.getClassLoader().getResource("com/wang/javascript/bjx.js");
+		FileReader fr = new FileReader(url.getPath());
+		engine.eval(fr);
+		fr.close();
+		Invocable jsInvoke = (Invocable) engine;
+		jsInvoke.invokeFunction("toUrl", "钱孙李钱孙李");
+	}
+
+	public void rhinoTest() throws Exception {
 		// 获取脚本引擎对象
 		ScriptEngineManager sem = new ScriptEngineManager();
 		ScriptEngine engine = sem.getEngineByName("javascript");
@@ -52,5 +65,13 @@ public class RhinoTest {
 		FileReader fr = new FileReader(url.getPath());
 		engine.eval(fr);
 		fr.close();
+
+		// 读取js文件
+		URL url2 = RhinoTest.class.getClassLoader().getResource("com/wang/javascript/b.js");
+		FileReader fr2 = new FileReader(url2.getPath());
+		engine.eval(fr2);
+		fr2.close();
+		Invocable jsInvoke2 = (Invocable) engine;
+		jsInvoke2.invokeFunction("test", null);
 	}
 }
