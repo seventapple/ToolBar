@@ -4,10 +4,16 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 
-public class FileClassLoader extends ClassLoader {
+/**
+ * 按照指定约规进行解码的类读取
+ * 
+ * @author 王李点儿
+ *
+ */
+public class DecrpyClassLoader extends ClassLoader {
 	private String dir;
 
-	public FileClassLoader(String dir) {
+	public DecrpyClassLoader(String dir) {
 		this.dir = dir;
 	}
 
@@ -39,21 +45,14 @@ public class FileClassLoader extends ClassLoader {
 
 	private byte[] getClassData(String name) {
 		String filePath = dir + File.separator + name.replace(".", File.separator) + ".class";
-		/**
-		 * 网络类加载器路径(filePath取得方法类似) 
-		 * URL url=new URL(filePath); 
-		 * InputStream is = url.openStream();
-		 */
-
 		byte[] data = null;
 		try (FileInputStream is = new FileInputStream(filePath);
 				ByteArrayOutputStream bos = new ByteArrayOutputStream();) {
-			byte[] d = new byte[128];
-			int len;
-			while ((len = is.read(d)) != -1) {
-				bos.write(d, 0, len);
-				bos.flush();
+			int len = -1;
+			while ((len = is.read()) != -1) {
+				bos.write(len ^ 0xff);
 			}
+			bos.flush();
 			data = bos.toByteArray();
 		} catch (Exception e) {
 		}

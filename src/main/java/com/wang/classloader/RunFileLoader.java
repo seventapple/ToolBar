@@ -15,6 +15,27 @@ public class RunFileLoader {
 		// 查看类由谁加载
 		System.out.println(c3.getClassLoader());// 自定义
 		System.out.println(c4.getClassLoader());// 引导BootstrapClassLoader
+		// 直接加载加密的类
+		try {
+			Class<?> c5 = fcl.findClass("com.wang.cl.HelloEncrpy");
+			System.out.println(c5);
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+		// 对加密的类使用自定义类加载器加载
+		DecrpyClassLoader dLoader = new DecrpyClassLoader("E:/TestFile/class");
+		Class<?> dc = dLoader.findClass("com.wang.cl.HelloEncrpy");
+		System.out.println(dc);
+		// 线程上下文类加载器
+		System.out.println("current thread cl : " + Thread.currentThread().getContextClassLoader());
+		// 设置线程的类加载器(通过设置自定义加载器,可抛弃双亲委派加载链模式)
+		Thread.currentThread().setContextClassLoader(dLoader);
+		System.out.println("update thread cl : " + Thread.currentThread().getContextClassLoader());
+		Class<?> c6 = Thread.currentThread().getContextClassLoader().loadClass("com.wang.cl.HelloEncrpy");
+		System.out.println(c6.getClassLoader());
+		// 由于DecrpyClassLoader中未舍弃双亲委派,所以实际会往上依赖,找到指定类,这时找到类的类加载器为实际找到类的加载器
+		Class<?> c7 = Thread.currentThread().getContextClassLoader().loadClass("com.wang.classloader.EncrpyUtil");
+		System.out.println(c7.getClassLoader());
 	}
 
 }
