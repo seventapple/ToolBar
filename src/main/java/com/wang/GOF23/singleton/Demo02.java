@@ -12,6 +12,9 @@ public class Demo02 {
 	private static Demo02 instance;
 
 	private Demo02() {
+		if (instance != null) {
+			throw new RuntimeException();
+		}
 	};
 
 	public static Demo02 getInstance() {
