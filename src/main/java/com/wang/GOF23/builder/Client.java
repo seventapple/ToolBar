@@ -1,4 +1,4 @@
-package com.wang.GOF23.factory.builder;
+package com.wang.GOF23.builder;
 
 //建造者模式 构造器与装配解耦
 public class Client {

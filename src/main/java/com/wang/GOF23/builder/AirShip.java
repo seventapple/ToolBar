@@ -1,4 +1,4 @@
-package com.wang.GOF23.factory.builder;
+package com.wang.GOF23.builder;
 
 //飞船对象
 public class AirShip {

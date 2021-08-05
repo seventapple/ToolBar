@@ -1,4 +1,4 @@
-package com.wang.GOF23.factory.builder;
+package com.wang.GOF23.builder;
 
 public class WaAirShipDriector implements AirShipDriector {
 
