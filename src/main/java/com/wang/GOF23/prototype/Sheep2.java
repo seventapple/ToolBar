@@ -1,8 +1,10 @@
 package com.wang.GOF23.prototype;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Sheep2 implements Cloneable {
+public class Sheep2 implements Cloneable, Serializable {
+	private static final long serialVersionUID = 2L;
 	private String name;
 	private Date brithday;
 
@@ -14,7 +16,7 @@ public class Sheep2 implements Cloneable {
 	@Override
 	protected Object clone() throws CloneNotSupportedException {
 		Sheep2 re = (Sheep2) super.clone();
-		re.brithday = (Date)this.brithday.clone();
+		re.brithday = (Date) this.brithday.clone();
 		return re;
 	}
 
