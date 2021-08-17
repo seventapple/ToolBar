@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="ToolBar">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="D:/eclipse/eclipse-jee-2019-06-R-win32-x86_64/eclipse/"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.8"/>
+    <property name="source" value="1.8"/>
+    <path id="Maven Dependencies.libraryclasspath">
+        <pathelement location="../../Jar_lib/org/slf4j/slf4j-nop/1.7.25/slf4j-nop-1.7.25.jar"/>
+        <pathelement location="../../Jar_lib/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar"/>
+        <pathelement location="../../Jar_lib/org/slf4j/slf4j-log4j12/1.7.25/slf4j-log4j12-1.7.25.jar"/>
+        <pathelement location="../../Jar_lib/log4j/log4j/1.2.17/log4j-1.2.17.jar"/>
+        <pathelement location="../../Jar_lib/org/slf4j/slf4j-simple/1.7.25/slf4j-simple-1.7.25.jar"/>
+        <pathelement location="../../Jar_lib/ch/qos/logback/logback-core/1.1.11/logback-core-1.1.11.jar"/>
+        <pathelement location="../../Jar_lib/ch/qos/logback/logback-classic/1.1.11/logback-classic-1.1.11.jar"/>
+    </path>
+    <path id="ToolBar.classpath">
+        <pathelement location="target/classes"/>
+        <pathelement location="target/test-classes"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.ClassCompareTest.classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Client (1).classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Client (2).classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Client.classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Client2.classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.ConditionTest.classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Demo01 (3).classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Demo02 (3).classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Demo03 (2).classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Demo04 (2).classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Demo05 (1).classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Demo06 (2).classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Demo07 (2).classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Demo07 (3).classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Demo08 (1).classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Demo08 (2).classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Demo09 (1).classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Demo09.classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Demo10 (1).classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Demo10.classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Demo11.classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.ExecutorTest.classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.FairLockTest.classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.InetAddressWa.classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Lancher (1).classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Lancher (2).classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Lancher (3).classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Lancher.classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Lancher4Post.classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.LogTest (1).classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.MergeInputStream.classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Server1 (1).classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Server2.classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Server3.classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Service (1).classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Service (2).classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Service.classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.SocketClient.classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.SocketServer.classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.SqlTest.classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Test (10).classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Test (7).classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Test (8).classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Test (9).classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.UPDClient.classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.UPDService.classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.URLTest.classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.WebHandler.classpath">
+        <path refid="ToolBar.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <target name="init">
+        <mkdir dir="target/classes"/>
+        <mkdir dir="target/test-classes"/>
+        <copy includeemptydirs="false" todir="target/classes">
+            <fileset dir="src/main/java">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="target/test-classes">
+            <fileset dir="src/test/java">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="target/classes"/>
+        <delete dir="target/test-classes"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="target/classes" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src/main/java"/>
+            <classpath refid="ToolBar.classpath"/>
+        </javac>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="target/test-classes" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src/test/java"/>
+            <classpath refid="ToolBar.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="ClassCompareTest">
+        <java classname="com.wang.tool.ClassCompareTest" failonerror="true" fork="yes">
+            <classpath refid="run.ClassCompareTest.classpath"/>
+        </java>
+    </target>
+    <target name="Client (1)">
+        <java classname="com.wang.internet.chattingRoom.Client" failonerror="true" fork="yes">
+            <classpath refid="run.Client (1).classpath"/>
+        </java>
+    </target>
+    <target name="Client (2)">
+        <java classname="com.wang.internet.multiScoket.business.Client" failonerror="true" fork="yes">
+            <classpath refid="run.Client (2).classpath"/>
+        </java>
+    </target>
+    <target name="Client">
+        <java classname="com.wang.internet.multiScoket.Client" failonerror="true" fork="yes">
+            <classpath refid="run.Client.classpath"/>
+        </java>
+    </target>
+    <target name="Client2">
+        <java classname="com.wang.internet.multiScoket.Client2" failonerror="true" fork="yes">
+            <classpath refid="run.Client2.classpath"/>
+        </java>
+    </target>
+    <target name="ConditionTest">
+        <java classname="com.wang.thread.reentrantLock.ConditionTest" failonerror="true" fork="yes">
+            <classpath refid="run.ConditionTest.classpath"/>
+        </java>
+    </target>
+    <target name="Demo01 (3)">
+        <java classname="com.wang.thread.Demo01" failonerror="true" fork="yes">
+            <classpath refid="run.Demo01 (3).classpath"/>
+        </java>
+    </target>
+    <target name="Demo02 (3)">
+        <java classname="com.wang.thread.Demo02" failonerror="true" fork="yes">
+            <classpath refid="run.Demo02 (3).classpath"/>
+        </java>
+    </target>
+    <target name="Demo03 (2)">
+        <java classname="com.wang.thread.Demo03" failonerror="true" fork="yes">
+            <classpath refid="run.Demo03 (2).classpath"/>
+        </java>
+    </target>
+    <target name="Demo04 (2)">
+        <java classname="com.wang.thread.Demo04" failonerror="true" fork="yes">
+            <classpath refid="run.Demo04 (2).classpath"/>
+        </java>
+    </target>
+    <target name="Demo05 (1)">
+        <java classname="com.wang.thread.Demo05" failonerror="true" fork="yes">
+            <classpath refid="run.Demo05 (1).classpath"/>
+        </java>
+    </target>
+    <target name="Demo06 (2)">
+        <java classname="com.wang.thread.Demo06" failonerror="true" fork="yes">
+            <classpath refid="run.Demo06 (2).classpath"/>
+        </java>
+    </target>
+    <target name="Demo07 (2)">
+        <java classname="com.wang.io.Demo07" failonerror="true" fork="yes">
+            <classpath refid="run.Demo07 (2).classpath"/>
+        </java>
+    </target>
+    <target name="Demo07 (3)">
+        <java classname="com.wang.thread.Demo07" failonerror="true" fork="yes">
+            <classpath refid="run.Demo07 (3).classpath"/>
+        </java>
+    </target>
+    <target name="Demo08 (1)">
+        <java classname="com.wang.io.Demo08" failonerror="true" fork="yes">
+            <classpath refid="run.Demo08 (1).classpath"/>
+        </java>
+    </target>
+    <target name="Demo08 (2)">
+        <java classname="com.wang.thread.Demo08" failonerror="true" fork="yes">
+            <classpath refid="run.Demo08 (2).classpath"/>
+        </java>
+    </target>
+    <target name="Demo09 (1)">
+        <java classname="com.wang.thread.Demo09" failonerror="true" fork="yes">
+            <classpath refid="run.Demo09 (1).classpath"/>
+        </java>
+    </target>
+    <target name="Demo09">
+        <java classname="com.wang.io.Demo09" failonerror="true" fork="yes">
+            <classpath refid="run.Demo09.classpath"/>
+        </java>
+    </target>
+    <target name="Demo10 (1)">
+        <java classname="com.wang.thread.Demo10" failonerror="true" fork="yes">
+            <classpath refid="run.Demo10 (1).classpath"/>
+        </java>
+    </target>
+    <target name="Demo10">
+        <java classname="com.wang.io.Demo10" failonerror="true" fork="yes">
+            <classpath refid="run.Demo10.classpath"/>
+        </java>
+    </target>
+    <target name="Demo11">
+        <java classname="com.wang.io.Demo11" failonerror="true" fork="yes">
+            <classpath refid="run.Demo11.classpath"/>
+        </java>
+    </target>
+    <target name="ExecutorTest">
+        <java classname="com.wang.thread.ExecutorTest" failonerror="true" fork="yes">
+            <classpath refid="run.ExecutorTest.classpath"/>
+        </java>
+    </target>
+    <target name="FairLockTest">
+        <java classname="com.wang.thread.reentrantLock.FairLockTest" failonerror="true" fork="yes">
+            <classpath refid="run.FairLockTest.classpath"/>
+        </java>
+    </target>
+    <target name="InetAddressWa">
+        <java classname="com.wang.internet.InetAddressWa" failonerror="true" fork="yes">
+            <classpath refid="run.InetAddressWa.classpath"/>
+        </java>
+    </target>
+    <target name="Lancher (1)">
+        <java classname="com.wang.生产者消费者.ver1.Lancher" failonerror="true" fork="yes">
+            <classpath refid="run.Lancher (1).classpath"/>
+        </java>
+    </target>
+    <target name="Lancher (2)">
+        <java classname="com.wang.生产者消费者.ver2.Lancher" failonerror="true" fork="yes">
+            <classpath refid="run.Lancher (2).classpath"/>
+        </java>
+    </target>
+    <target name="Lancher (3)">
+        <java classname="com.wang.生产者消费者.ver3.Lancher" failonerror="true" fork="yes">
+            <classpath refid="run.Lancher (3).classpath"/>
+        </java>
+    </target>
+    <target name="Lancher">
+        <java classname="com.wang.classloader.Lancher" failonerror="true" fork="yes">
+            <classpath refid="run.Lancher.classpath"/>
+        </java>
+    </target>
+    <target name="Lancher4Post">
+        <java classname="com.wang.internet.httpserver.Lancher4Post" failonerror="true" fork="yes">
+            <classpath refid="run.Lancher4Post.classpath"/>
+        </java>
+    </target>
+    <target name="LogTest (1)">
+        <java classname="com.wang.log.LogTest" failonerror="true" fork="yes">
+            <classpath refid="run.LogTest (1).classpath"/>
+        </java>
+    </target>
+    <target name="MergeInputStream">
+        <java classname="com.wang.tool.MergeInputStream" failonerror="true" fork="yes">
+            <classpath refid="run.MergeInputStream.classpath"/>
+        </java>
+    </target>
+    <target name="Server1 (1)">
+        <java classname="com.wang.internet.httpserver.Server1" failonerror="true" fork="yes">
+            <classpath refid="run.Server1 (1).classpath"/>
+        </java>
+    </target>
+    <target name="Server2">
+        <java classname="com.wang.internet.httpserver.Server2" failonerror="true" fork="yes">
+            <classpath refid="run.Server2.classpath"/>
+        </java>
+    </target>
+    <target name="Server3">
+        <java classname="com.wang.internet.httpserver.Server3" failonerror="true" fork="yes">
+            <classpath refid="run.Server3.classpath"/>
+        </java>
+    </target>
+    <target name="Service (1)">
+        <java classname="com.wang.internet.chattingRoom.Service" failonerror="true" fork="yes">
+            <classpath refid="run.Service (1).classpath"/>
+        </java>
+    </target>
+    <target name="Service (2)">
+        <java classname="com.wang.internet.multiScoket.business.Service" failonerror="true" fork="yes">
+            <classpath refid="run.Service (2).classpath"/>
+        </java>
+    </target>
+    <target name="Service">
+        <java classname="com.wang.internet.multiScoket.Service" failonerror="true" fork="yes">
+            <classpath refid="run.Service.classpath"/>
+        </java>
+    </target>
+    <target name="SocketClient">
+        <java classname="com.wang.internet.SocketClient" failonerror="true" fork="yes">
+            <classpath refid="run.SocketClient.classpath"/>
+        </java>
+    </target>
+    <target name="SocketServer">
+        <java classname="com.wang.internet.SocketServer" failonerror="true" fork="yes">
+            <classpath refid="run.SocketServer.classpath"/>
+        </java>
+    </target>
+    <target name="SqlTest">
+        <java classname="com.wang.db.SqlTest" failonerror="true" fork="yes">
+            <classpath refid="run.SqlTest.classpath"/>
+        </java>
+    </target>
+    <target name="Test (10)">
+        <java classname="com.wang.reflex.Test" failonerror="true" fork="yes">
+            <classpath refid="run.Test (10).classpath"/>
+        </java>
+    </target>
+    <target name="Test (7)">
+        <java classname="com.wang.io.Test" failonerror="true" fork="yes">
+            <classpath refid="run.Test (7).classpath"/>
+        </java>
+    </target>
+    <target name="Test (8)">
+        <java classname="com.wang.test.Test" failonerror="true" fork="yes">
+            <classpath refid="run.Test (8).classpath"/>
+        </java>
+    </target>
+    <target name="Test (9)">
+        <java classname="com.wang.annotation.orm.Test" failonerror="true" fork="yes">
+            <classpath refid="run.Test (9).classpath"/>
+        </java>
+    </target>
+    <target name="UPDClient">
+        <java classname="com.wang.internet.UPDClient" failonerror="true" fork="yes">
+            <classpath refid="run.UPDClient.classpath"/>
+        </java>
+    </target>
+    <target name="UPDService">
+        <java classname="com.wang.internet.UPDService" failonerror="true" fork="yes">
+            <classpath refid="run.UPDService.classpath"/>
+        </java>
+    </target>
+    <target name="URLTest">
+        <java classname="com.wang.internet.URLTest" failonerror="true" fork="yes">
+            <classpath refid="run.URLTest.classpath"/>
+        </java>
+    </target>
+    <target name="WebHandler">
+        <java classname="com.wang.internet.httpserver.WebHandler" failonerror="true" fork="yes">
+            <classpath refid="run.WebHandler.classpath"/>
+        </java>
+    </target>
+</project>
