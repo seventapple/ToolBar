@@ -19,7 +19,7 @@ public class Demo03 {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn = DriverManager.getConnection(
 					"jdbc:mysql://localhost:3306/testdb?characterEncoding=utf-8&useSSL=false", "root", "123456");
-			String sql = "insert into t_user values (20, 'gao')";
+			String sql = "insert into t_user (id,username)  values (20, 'gao')";
 			conn.setAutoCommit(false);
 			Statement stmt = conn.createStatement();
 			for(int i=0;i<3;i++) {

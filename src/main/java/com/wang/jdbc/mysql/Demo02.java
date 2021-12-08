@@ -22,7 +22,7 @@ public class Demo02 {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn = DriverManager.getConnection(
 					"jdbc:mysql://localhost:3306/testdb?characterEncoding=utf-8&useSSL=false", "root", "123456");
-			String sql = "insert into t_user values (?, ?)";
+			String sql = "insert into t_user (id,username)  values (?, ?)";
 			PreparedStatement ps = conn.prepareStatement(sql);
 //			ps.setInt(1, 14);
 //			ps.setString(2, "wang");
